@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
+    return view('home');
+})->name('home');
+
+Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
+
+Route::get('/register', function() {
+    return view('register');
+})->name('register');
+
+Route::post('account/sign-in',
+			array(
+				'as' => 'sign-in-post',
+				'uses' => 'AccountController@postSignIn'
+			)
+		);
